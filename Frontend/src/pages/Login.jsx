@@ -1,0 +1,135 @@
+import React, { useState } from 'react';
+import { useNavigate, useSearchParams, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { Mail, Lock, ShieldAlert, LogIn } from 'lucide-react';
+
+const Login = () => {
+  const { login } = useAuth();
+  const [email, setEmail] = useState('');
+  const [mdp, setMdp] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    if (!email || !mdp) {
+      setError('Veuillez remplir tous les champs.');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const user = await login(email, mdp);
+      const redirectUrl = searchParams.get('redirect');
+      if (redirectUrl) {
+        navigate(decodeURIComponent(redirectUrl));
+      } else {
+        // Default dashboard routing
+        if (user.role === 'prestataire') {
+          navigate('/provider-dashboard');
+        } else {
+          navigate('/client-dashboard');
+        }
+      }
+    } catch (err) {
+      setError(err.message || 'Email ou mot de passe incorrect.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: 'calc(100vh - 200px)', padding: '20px' }}>
+      <div className="card animate-fade-in" style={{ width: '100%', maxWidth: '440px', padding: '36px', boxShadow: 'var(--shadow-lg)' }}>
+        <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+          <div className="logo-container" style={{ justifyContent: 'center', marginBottom: '16px' }}>
+            <div className="logo-icon">9</div>
+            <span>9antra</span>
+          </div>
+          <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Ravis de vous revoir</h2>
+          <p style={{ fontSize: '0.9rem', marginTop: '6px' }}>Connectez-vous pour gérer vos réservations</p>
+        </div>
+
+        {error && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '12px', borderRadius: '8px', backgroundColor: 'rgba(239, 68, 68, 0.1)', color: 'var(--danger)', fontSize: '0.85rem', fontWeight: 600, marginBottom: '20px' }}>
+            <ShieldAlert size={16} style={{ flexShrink: 0 }} />
+            <span>{error}</span>
+          </div>
+        )}
+
+        <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          {/* Email input */}
+          <div className="form-group" style={{ margin: 0 }}>
+            <label className="form-label">Adresse email</label>
+            <div style={{ position: 'relative' }}>
+              <Mail size={18} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <input
+                type="email"
+                className="form-input"
+                placeholder="nom@exemple.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                style={{ paddingLeft: '48px' }}
+                required
+              />
+            </div>
+          </div>
+
+          {/* Password input */}
+          <div className="form-group" style={{ margin: 0 }}>
+            <label className="form-label">Mot de passe</label>
+            <div style={{ position: 'relative' }}>
+              <Lock size={18} style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
+              <input
+                type="password"
+                className="form-input"
+                placeholder="••••••••"
+                value={mdp}
+                onChange={(e) => setMdp(e.target.value)}
+                style={{ paddingLeft: '48px' }}
+                required
+              />
+            </div>
+          </div>
+
+          {/* Remember me and Forgot password mock */}
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem' }}>
+            <label style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--text-muted)', cursor: 'pointer' }}>
+              <input type="checkbox" style={{ accentColor: 'var(--primary)' }} />
+              Se souvenir de moi
+            </label>
+            <a href="#" style={{ color: 'var(--primary)', fontWeight: 600 }}>Mot de passe oublié ?</a>
+          </div>
+
+          {/* Submit button */}
+          <button
+            type="submit"
+            disabled={loading}
+            className="btn btn-primary"
+            style={{ width: '100%', padding: '12px', justifyContent: 'center', fontSize: '1rem', marginTop: '8px' }}
+          >
+            {loading ? 'Connexion en cours...' : (
+              <>
+                <LogIn size={18} />
+                Se connecter
+              </>
+            )}
+          </button>
+        </form>
+
+        <div style={{ textAlign: 'center', marginTop: '28px', borderTop: '1px solid var(--border)', paddingTop: '20px', fontSize: '0.9rem', color: 'var(--text-muted)' }}>
+          Vous n'avez pas de compte ?{' '}
+          <Link to="/register" style={{ color: 'var(--primary)', fontWeight: 700 }}>
+            S'inscrire gratuitement
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
