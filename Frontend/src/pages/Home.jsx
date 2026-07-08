@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Search, Stethoscope, Scissors, Utensils, Shield, Clock, Award, ArrowRight, Dumbbell, Car, Wrench, Camera } from 'lucide-react';
+import { Search, Stethoscope, Scissors, Utensils, Shield, Clock, Award, ArrowRight, Dumbbell, Car, Wrench, Camera, Hotel } from 'lucide-react';
 import ServiceCard from '../components/ServiceCard';
 import heroImg from '../assets/wakti_hero.jpg';
 
@@ -31,16 +31,24 @@ const Home = () => {
     },
     {
       _id: 'mock-3',
-      nom: 'Menu Dégustation Gastronomique',
-      description: 'Une expérience culinaire inoubliable avec un menu complet 4 services composé de produits locaux frais.',
-      prix: 110,
+      nom: 'Table 1 (2 personnes - Près de la fenêtre)',
+      description: 'Réservez la table romantique de vos rêves avec vue panoramique sur le port.',
+      prix: 0,
       categorie: 'restaurant',
-      prestataire: { nom: 'Le Petit Restaurant', adresse: 'Rue de la Mer, La Marsa, Tunis', note: 4.7 }
+      prestataire: { nom: 'Restaurant El Amel', adresse: 'Port El Kantaoui, Sousse', note: 4.6 }
+    },
+    {
+      _id: 'mock-9',
+      nom: 'Suite Junior (Vue sur Patio Tunisien)',
+      description: 'Suite traditionnelle de 35m² décorée d’arabesques, grand lit king size, salle de bain en marbre et vue sur le patio.',
+      prix: 280,
+      categorie: 'hotel',
+      prestataire: { nom: 'Dar El Jeld Hotel & Spa', adresse: 'Rue Dar El Jeld, La Médina, Tunis', note: 4.9 }
     },
     {
       _id: 'mock-5',
       nom: 'Session de Coaching Personnel',
-      description: 'Entraînement sur-mesure de 1 heure avec évaluation physique, conseils nutritionnels et musculation par un coach certifié.',
+      description: 'Entraînement sur-mesure de 1 heure avec évaluation physique, conseils nutritionnels et musculation.',
       prix: 40,
       categorie: 'sport',
       prestataire: { nom: 'Ramzi Fit Coach', adresse: 'California Gym, Centre Urbain Nord, Tunis', note: 4.9 }
@@ -48,26 +56,10 @@ const Home = () => {
     {
       _id: 'mock-6',
       nom: 'Lavage Auto Intelligent & Polish',
-      description: 'Nettoyage intérieur et extérieur en profondeur avec cire protectrice, shampoing des sièges et lustrage des phares.',
+      description: 'Nettoyage intérieur et extérieur en profondeur avec cire protectrice, shampoing des sièges.',
       prix: 35,
       categorie: 'auto',
       prestataire: { nom: 'Wash & Go Detailing', adresse: 'Station Shell, Route de la Marsa, Tunis', note: 4.6 }
-    },
-    {
-      _id: 'mock-7',
-      nom: 'Dépannage & Installation Plomberie',
-      description: 'Recherche et réparation de fuites d\'eau, débouchage de canalisations ou installation de robinetterie à domicile.',
-      prix: 50,
-      categorie: 'artisan',
-      prestataire: { nom: 'Saber Plomberie Express', adresse: 'Interventions Grand Tunis, Tunis', note: 4.8 }
-    },
-    {
-      _id: 'mock-8',
-      nom: 'Shooting Photo Professionnel',
-      description: 'Séance photo de 1h en studio ou en extérieur pour portraits professionnels, packshots produits ou événements de famille.',
-      prix: 150,
-      categorie: 'loisir',
-      prestataire: { nom: 'Studio Elyes Photo', adresse: 'Rue de Sousse, Menzah 5, Tunis', note: 4.7 }
     }
   ];
 
@@ -78,9 +70,9 @@ const Home = () => {
         if (response.ok) {
           const data = await response.json();
           if (data.services && data.services.length > 0) {
+            // Keep doctors, tables, suites that represent different providers
             setServices(data.services.slice(0, 4));
           } else {
-            // Shuffle and slice to show 4 random popular ones
             setServices(mockServices.slice(0, 4));
           }
         } else {
@@ -118,7 +110,7 @@ const Home = () => {
               Réservez avec <span style={{ color: 'var(--primary)', background: 'linear-gradient(135deg, var(--primary), var(--secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Wakti</span>.
             </h1>
             <p className="hero-subtitle">
-              Wakti ("Mon Temps") est la plateforme Tunisienne premium pour planifier vos rendez-vous instantanément chez vos médecins, centres de beauté, restaurants et cliniques.
+              Wakti ("Mon Temps") est la plateforme Tunisienne premium pour planifier vos rendez-vous instantanément : réserver une table de restaurant spécifique, une chambre avec vue ou vos médecins.
             </p>
 
             {/* Search Bar Form */}
@@ -127,7 +119,7 @@ const Home = () => {
                 <Search size={20} style={{ color: 'var(--text-muted)' }} />
                 <input
                   type="text"
-                  placeholder="Quel service ou professionnel ?"
+                  placeholder="Quel service, hôtel, restaurant ou pro ?"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
@@ -138,6 +130,7 @@ const Home = () => {
                   <option value="medecin">Médecins</option>
                   <option value="centre de beaute">Beauté</option>
                   <option value="restaurant">Restaurants</option>
+                  <option value="hotel">Hôtels</option>
                   <option value="clinique">Cliniques</option>
                   <option value="sport">Sport & Fitness</option>
                   <option value="auto">Services Auto</option>
@@ -165,14 +158,27 @@ const Home = () => {
         <h2 className="section-title" style={{ textAlign: 'center', width: '100%' }}>Parcourez par catégorie</h2>
         <p style={{ textAlign: 'center', marginBottom: '40px', marginTop: '-20px' }}>Découvrez des professionnels rigoureusement sélectionnés près de chez vous</p>
         
-        <div className="grid-4">
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="categories-grid">
+          <style>{`
+            @media (max-width: 900px) {
+              .categories-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+              }
+            }
+            @media (max-width: 600px) {
+              .categories-grid {
+                grid-template-columns: 1fr !important;
+              }
+            }
+          `}</style>
+          
           {/* Medecin */}
           <div className="card card-hover" onClick={() => handleCategoryClick('medecin')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(20, 184, 166, 0.12)', color: 'rgb(13, 148, 136)' }}>
               <Stethoscope size={28} />
             </div>
             <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Médecins</h3>
-            <p style={{ fontSize: '0.85rem' }}>Généralistes, pédiatres, dentistes et spécialistes.</p>
+            <p style={{ fontSize: '0.85rem' }}>Trouvez un médecin spécialiste (ophtalmologue, etc.) et réservez votre consultation.</p>
           </div>
 
           {/* Beaute */}
@@ -181,7 +187,7 @@ const Home = () => {
               <Scissors size={28} />
             </div>
             <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Beauté</h3>
-            <p style={{ fontSize: '0.85rem' }}>Salons de coiffure, spas, massages et soins esthétiques.</p>
+            <p style={{ fontSize: '0.85rem' }}>Salons de coiffure, spas, massages et soins d’éclat corporel.</p>
           </div>
 
           {/* Resto */}
@@ -190,12 +196,21 @@ const Home = () => {
               <Utensils size={28} />
             </div>
             <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Restaurants</h3>
-            <p style={{ fontSize: '0.85rem' }}>Réservation de tables et haute gastronomie tunisienne.</p>
+            <p style={{ fontSize: '0.85rem' }}>Réservez la table de votre choix (vue mer, terrasse, fenêtre) en direct.</p>
+          </div>
+
+          {/* Hotel */}
+          <div className="card card-hover" onClick={() => handleCategoryClick('hotel')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(99, 102, 241, 0.12)', color: 'rgb(79, 70, 229)' }}>
+              <Hotel size={28} />
+            </div>
+            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Hôtels</h3>
+            <p style={{ fontSize: '0.85rem' }}>Réservez des séjours, suites ou chambres selon la vue (mer/jardin) ou le prix.</p>
           </div>
 
           {/* Clinique */}
           <div className="card card-hover" onClick={() => handleCategoryClick('clinique')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(99, 102, 241, 0.12)', color: 'rgb(79, 70, 229)' }}>
+            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(71, 85, 105, 0.12)', color: 'rgb(71, 85, 105)' }}>
               <Shield size={28} />
             </div>
             <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Cliniques</h3>

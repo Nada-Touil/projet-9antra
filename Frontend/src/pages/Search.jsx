@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Search as SearchIcon, Filter, MapPin, SlidersHorizontal, Stethoscope, Scissors, Utensils, Shield, Sparkles, Dumbbell, Car, Wrench, Camera } from 'lucide-react';
+import { Search as SearchIcon, Filter, MapPin, SlidersHorizontal, Stethoscope, Scissors, Utensils, Shield, Sparkles, Dumbbell, Car, Wrench, Camera, Hotel } from 'lucide-react';
 import ServiceCard from '../components/ServiceCard';
 
 const Search = () => {
@@ -159,7 +159,8 @@ const Search = () => {
     { id: 'sport', label: 'Sport & Fitness', icon: Dumbbell },
     { id: 'auto', label: 'Services Auto', icon: Car },
     { id: 'artisan', label: 'Artisans & Maison', icon: Wrench },
-    { id: 'loisir', label: 'Loisirs & Photos', icon: Camera }
+    { id: 'loisir', label: 'Loisirs & Photos', icon: Camera },
+    { id: 'hotel', label: 'Hôtels', icon: Hotel }
   ];
 
   return (

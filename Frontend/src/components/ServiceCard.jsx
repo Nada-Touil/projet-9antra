@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Star, MapPin, Stethoscope, Scissors, Utensils, Calendar, Dumbbell, Car, Wrench, Camera } from 'lucide-react';
+import { Star, MapPin, Stethoscope, Scissors, Utensils, Calendar, Dumbbell, Car, Wrench, Camera, Hotel } from 'lucide-react';
 
 export const getCategoryStyles = (category) => {
   const cat = category?.toLowerCase() || '';
@@ -60,9 +60,17 @@ export const getCategoryStyles = (category) => {
       label: 'Loisirs & Photos'
     };
   }
+  if (cat.includes('hotel') || cat.includes('chambre') || cat.includes('sejour')) {
+    return {
+      bg: 'rgba(99, 102, 241, 0.12)',
+      color: 'rgb(79, 70, 229)',
+      icon: Hotel,
+      label: 'Hôtels & Séjours'
+    };
+  }
   return {
-    bg: 'rgba(99, 102, 241, 0.12)',
-    color: 'rgb(79, 70, 229)',
+    bg: 'rgba(148, 163, 184, 0.12)',
+    color: 'rgb(71, 85, 105)',
     icon: Calendar,
     label: category || 'Service'
   };
