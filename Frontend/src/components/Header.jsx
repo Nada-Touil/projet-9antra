@@ -15,6 +15,7 @@ const Header = () => {
   };
 
   const getDashboardLink = () => {
+    if (user?.role === 'admin') return '/admin-dashboard';
     if (user?.role === 'prestataire') return '/provider-dashboard';
     return '/client-dashboard';
   };

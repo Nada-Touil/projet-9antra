@@ -101,55 +101,63 @@ const Home = () => {
   return (
     <div className="animate-fade-in">
       {/* Hero Section */}
-      <section className="hero-section-pro">
-        <div className="hero-grid">
-          {/* Left Column */}
-          <div className="hero-left">
-            <h1 className="hero-title">
-              Gagnez du temps.<br />
-              Planifiez vos réservations avec <span style={{ color: 'var(--primary)', background: 'linear-gradient(135deg, var(--primary), var(--secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Wakti</span>.
-            </h1>
-            <p className="hero-subtitle">
-              Wakti est la première plateforme tunisienne intelligente dédiée à l’optimisation de votre temps. Planifiez instantanément toutes vos réservations en quelques clics : réservez une table précise dans vos restaurants favoris, choisissez votre chambre d’hôtel selon la vue ou prenez rendez-vous chez vos médecins sans aucune attente. Dites adieu aux appels interminables et optimisez votre quotidien.
-            </p>
+      <section className="hero-section-full" style={{
+        backgroundImage: `linear-gradient(rgba(15, 12, 30, 0.7), rgba(15, 12, 30, 0.7)), url(${heroImg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        borderRadius: 'var(--radius-lg)',
+        padding: '100px 24px',
+        color: 'white',
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: '60px',
+        boxShadow: 'var(--shadow-lg)',
+        minHeight: '450px',
+        position: 'relative',
+        overflow: 'hidden'
+      }}>
+        <div style={{ maxWidth: '800px', zIndex: 2, position: 'relative' }}>
+          <h1 className="hero-title" style={{ color: 'white', fontSize: '3rem', fontWeight: 800, marginBottom: '20px', lineHeight: '1.2', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
+            Gagnez du temps.<br />
+            Planifiez vos réservations avec <span style={{ color: '#a78bfa', background: 'linear-gradient(135deg, #a78bfa, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Wakti</span>.
+          </h1>
+          <p className="hero-subtitle" style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.15rem', lineHeight: '1.6', marginBottom: '40px', textShadow: '0 1px 5px rgba(0,0,0,0.2)', maxWidth: '100%' }}>
+            Wakti est la première plateforme tunisienne intelligente dédiée à l’optimisation de votre temps. Planifiez instantanément toutes vos réservations en quelques clics : réservez une table précise dans vos restaurants favoris, choisissez votre chambre d’hôtel selon la vue ou prenez rendez-vous chez vos médecins sans aucune attente. Dites adieu aux appels interminables et optimisez votre quotidien.
+          </p>
 
-            {/* Search Bar Form */}
-            <form onSubmit={handleSearchSubmit} className="search-wrapper glass" style={{ width: '100%', margin: '0' }}>
-              <div className="search-input-group">
-                <Search size={20} style={{ color: 'var(--text-muted)' }} />
-                <input
-                  type="text"
-                  placeholder="Quel service, hôtel, restaurant ou pro ?"
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                />
-              </div>
-              <div className="search-input-group">
-                <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                  <option value="">Toutes les catégories</option>
-                  <option value="medecin">Médecins</option>
-                  <option value="centre de beaute">Beauté</option>
-                  <option value="restaurant">Restaurants</option>
-                  <option value="hotel">Hôtels</option>
-                  <option value="clinique">Cliniques</option>
-                  <option value="sport">Sport & Fitness</option>
-                  <option value="auto">Services Auto</option>
-                  <option value="artisan">Artisans & Maison</option>
-                  <option value="loisir">Loisirs & Photos</option>
-                </select>
-              </div>
-              <button type="submit" className="btn btn-primary" style={{ padding: '12px 28px' }}>
-                Rechercher
-              </button>
-            </form>
-          </div>
-
-          {/* Right Column: Hero Banner Image */}
-          <div className="hero-right">
-            <div className="hero-image-container glass">
-              <img src={heroImg} alt="Wakti Banner" className="hero-image" />
+          {/* Search Bar Form */}
+          <form onSubmit={handleSearchSubmit} className="search-wrapper glass" style={{ width: '100%', margin: '0 auto', background: 'rgba(255, 255, 255, 0.95)', border: '1px solid rgba(255, 255, 255, 0.2)', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)' }}>
+            <div className="search-input-group" style={{ borderRight: '1px solid #cbd5e1' }}>
+              <Search size={20} style={{ color: '#64748b' }} />
+              <input
+                type="text"
+                placeholder="Quel service, hôtel, restaurant ou pro ?"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                style={{ color: '#0f172a' }}
+              />
             </div>
-          </div>
+            <div className="search-input-group" style={{ borderRight: 'none' }}>
+              <select value={category} onChange={(e) => setCategory(e.target.value)} style={{ color: '#0f172a' }}>
+                <option value="">Toutes les catégories</option>
+                <option value="medecin">Médecins</option>
+                <option value="centre de beaute">Beauté</option>
+                <option value="restaurant">Restaurants</option>
+                <option value="hotel">Hôtels</option>
+                <option value="clinique">Cliniques</option>
+                <option value="sport">Sport & Fitness</option>
+                <option value="auto">Services Auto</option>
+                <option value="artisan">Artisans & Maison</option>
+                <option value="loisir">Loisirs & Photos</option>
+              </select>
+            </div>
+            <button type="submit" className="btn btn-primary" style={{ padding: '12px 28px' }}>
+              Rechercher
+            </button>
+          </form>
         </div>
       </section>
 

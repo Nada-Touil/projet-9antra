@@ -29,7 +29,9 @@ const Login = () => {
         navigate(decodeURIComponent(redirectUrl));
       } else {
         // Default dashboard routing
-        if (user.role === 'prestataire') {
+        if (user.role === 'admin') {
+          navigate('/admin-dashboard');
+        } else if (user.role === 'prestataire') {
           navigate('/provider-dashboard');
         } else {
           navigate('/client-dashboard');

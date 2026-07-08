@@ -12,6 +12,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import ClientDashboard from './pages/ClientDashboard';
 import ProviderDashboard from './pages/ProviderDashboard';
+import AdminDashboard from './pages/AdminDashboard';
 
 import './App.css';
 
@@ -29,6 +30,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/client-dashboard" element={<ClientDashboard />} />
             <Route path="/provider-dashboard" element={<ProviderDashboard />} />
+            <Route path="/admin-dashboard" element={<AdminDashboard />} />
             {/* Fallback routing */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
