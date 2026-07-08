@@ -123,13 +123,10 @@ const Home = () => {
         overflow: 'hidden'
       }}>
         <div style={{ maxWidth: '800px', zIndex: 2, position: 'relative' }}>
-          <h1 className="hero-title" style={{ color: 'white', fontSize: '3rem', fontWeight: 800, marginBottom: '20px', lineHeight: '1.2', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
+          <h1 className="hero-title" style={{ color: 'white', fontSize: '3rem', fontWeight: 800, marginBottom: '40px', lineHeight: '1.2', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
             Gagnez du temps.<br />
             Planifiez vos réservations avec <span style={{ color: '#a78bfa', background: 'linear-gradient(135deg, #a78bfa, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Wakti</span>.
           </h1>
-          <p className="hero-subtitle" style={{ color: 'rgba(255, 255, 255, 0.9)', fontSize: '1.15rem', lineHeight: '1.6', marginBottom: '40px', textShadow: '0 1px 5px rgba(0,0,0,0.2)', maxWidth: '100%' }}>
-            Wakti est la première plateforme tunisienne intelligente dédiée à l’optimisation de votre temps. Planifiez instantanément toutes vos réservations en quelques clics : réservez une table précise dans vos restaurants favoris, choisissez votre chambre d’hôtel selon la vue ou prenez rendez-vous chez vos médecins sans aucune attente. Dites adieu aux appels interminables et optimisez votre quotidien.
-          </p>
 
           {/* Search Bar Form */}
           <form onSubmit={handleSearchSubmit} className="search-wrapper glass" style={{ width: '100%', margin: '0 auto', background: 'rgba(255, 255, 255, 0.95)', border: '1px solid rgba(255, 255, 255, 0.2)', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)' }}>
