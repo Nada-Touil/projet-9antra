@@ -102,10 +102,14 @@ const Home = () => {
     <div className="animate-fade-in">
       {/* Hero Section */}
       <section className="hero-section-full" style={{
-        backgroundImage: `linear-gradient(rgba(15, 12, 30, 0.7), rgba(15, 12, 30, 0.7)), url(${heroImg})`,
+        backgroundImage: `linear-gradient(rgba(15, 12, 30, 0.75), rgba(15, 12, 30, 0.75)), url(${heroImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        borderRadius: 'var(--radius-lg)',
+        width: '100vw',
+        marginLeft: 'calc(-50vw + 50%)',
+        marginRight: 'calc(-50vw + 50%)',
+        marginTop: '-40px',
+        borderRadius: '0',
         padding: '100px 24px',
         color: 'white',
         textAlign: 'center',
@@ -113,9 +117,8 @@ const Home = () => {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: '60px',
-        boxShadow: 'var(--shadow-lg)',
-        minHeight: '450px',
+        marginBottom: '80px',
+        minHeight: 'calc(100vh - 70px)',
         position: 'relative',
         overflow: 'hidden'
       }}>
@@ -161,157 +164,159 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="categories-container" style={{ marginBottom: '80px', marginTop: '40px' }}>
-        <h2 className="section-title" style={{ textAlign: 'center', width: '100%' }}>Parcourez par catégorie</h2>
-        <p style={{ textAlign: 'center', marginBottom: '40px', marginTop: '-20px' }}>Découvrez des professionnels rigoureusement sélectionnés près de chez vous</p>
-        
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="categories-grid">
-          <style>{`
-            @media (max-width: 900px) {
-              .categories-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-              }
-            }
-            @media (max-width: 600px) {
-              .categories-grid {
-                grid-template-columns: 1fr !important;
-              }
-            }
-          `}</style>
+      <div className="container">
+        {/* Categories Section */}
+        <section className="categories-container" style={{ marginBottom: '80px', marginTop: '40px' }}>
+          <h2 className="section-title" style={{ textAlign: 'center', width: '100%' }}>Parcourez par catégorie</h2>
+          <p style={{ textAlign: 'center', marginBottom: '40px', marginTop: '-20px' }}>Découvrez des professionnels rigoureusement sélectionnés près de chez vous</p>
           
-          {/* Medecin */}
-          <div className="card card-hover" onClick={() => handleCategoryClick('medecin')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(20, 184, 166, 0.12)', color: 'rgb(13, 148, 136)' }}>
-              <Stethoscope size={28} />
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }} className="categories-grid">
+            <style>{`
+              @media (max-width: 900px) {
+                .categories-grid {
+                  grid-template-columns: repeat(2, 1fr) !important;
+                }
+              }
+              @media (max-width: 600px) {
+                .categories-grid {
+                  grid-template-columns: 1fr !important;
+                }
+              }
+            `}</style>
+            
+            {/* Medecin */}
+            <div className="card card-hover" onClick={() => handleCategoryClick('medecin')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(20, 184, 166, 0.12)', color: 'rgb(13, 148, 136)' }}>
+                <Stethoscope size={28} />
+              </div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Médecins</h3>
+              <p style={{ fontSize: '0.85rem' }}>Trouvez un médecin spécialiste (ophtalmologue, etc.) et réservez votre consultation.</p>
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Médecins</h3>
-            <p style={{ fontSize: '0.85rem' }}>Trouvez un médecin spécialiste (ophtalmologue, etc.) et réservez votre consultation.</p>
-          </div>
 
-          {/* Beaute */}
-          <div className="card card-hover" onClick={() => handleCategoryClick('centre de beaute')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(236, 72, 153, 0.12)', color: 'rgb(219, 39, 119)' }}>
-              <Scissors size={28} />
+            {/* Beaute */}
+            <div className="card card-hover" onClick={() => handleCategoryClick('centre de beaute')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(236, 72, 153, 0.12)', color: 'rgb(219, 39, 119)' }}>
+                <Scissors size={28} />
+              </div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Beauté</h3>
+              <p style={{ fontSize: '0.85rem' }}>Salons de coiffure, spas, massages et soins d’éclat corporel.</p>
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Beauté</h3>
-            <p style={{ fontSize: '0.85rem' }}>Salons de coiffure, spas, massages et soins d’éclat corporel.</p>
-          </div>
 
-          {/* Resto */}
-          <div className="card card-hover" onClick={() => handleCategoryClick('restaurant')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(249, 115, 22, 0.12)', color: 'rgb(234, 88, 12)' }}>
-              <Utensils size={28} />
+            {/* Resto */}
+            <div className="card card-hover" onClick={() => handleCategoryClick('restaurant')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(249, 115, 22, 0.12)', color: 'rgb(234, 88, 12)' }}>
+                <Utensils size={28} />
+              </div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Restaurants</h3>
+              <p style={{ fontSize: '0.85rem' }}>Réservez la table de votre choix (vue mer, terrasse, fenêtre) en direct.</p>
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Restaurants</h3>
-            <p style={{ fontSize: '0.85rem' }}>Réservez la table de votre choix (vue mer, terrasse, fenêtre) en direct.</p>
-          </div>
 
-          {/* Hotel */}
-          <div className="card card-hover" onClick={() => handleCategoryClick('hotel')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(99, 102, 241, 0.12)', color: 'rgb(79, 70, 229)' }}>
-              <Hotel size={28} />
+            {/* Hotel */}
+            <div className="card card-hover" onClick={() => handleCategoryClick('hotel')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(99, 102, 241, 0.12)', color: 'rgb(79, 70, 229)' }}>
+                <Hotel size={28} />
+              </div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Hôtels</h3>
+              <p style={{ fontSize: '0.85rem' }}>Réservez des séjours, suites ou chambres selon la vue (mer/jardin) ou le prix.</p>
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Hôtels</h3>
-            <p style={{ fontSize: '0.85rem' }}>Réservez des séjours, suites ou chambres selon la vue (mer/jardin) ou le prix.</p>
-          </div>
 
-          {/* Clinique */}
-          <div className="card card-hover" onClick={() => handleCategoryClick('clinique')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(71, 85, 105, 0.12)', color: 'rgb(71, 85, 105)' }}>
-              <Shield size={28} />
+            {/* Clinique */}
+            <div className="card card-hover" onClick={() => handleCategoryClick('clinique')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(71, 85, 105, 0.12)', color: 'rgb(71, 85, 105)' }}>
+                <Shield size={28} />
+              </div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Cliniques</h3>
+              <p style={{ fontSize: '0.85rem' }}>Bilans de santé globaux, radiologie et cliniques privées.</p>
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Cliniques</h3>
-            <p style={{ fontSize: '0.85rem' }}>Bilans de santé globaux, radiologie et cliniques privées.</p>
-          </div>
 
-          {/* Sport */}
-          <div className="card card-hover" onClick={() => handleCategoryClick('sport')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', color: 'rgb(5, 150, 105)' }}>
-              <Dumbbell size={28} />
+            {/* Sport */}
+            <div className="card card-hover" onClick={() => handleCategoryClick('sport')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', color: 'rgb(5, 150, 105)' }}>
+                <Dumbbell size={28} />
+              </div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Sport & Fitness</h3>
+              <p style={{ fontSize: '0.85rem' }}>Coachs privés, séances de fitness et salles de musculation.</p>
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Sport & Fitness</h3>
-            <p style={{ fontSize: '0.85rem' }}>Coachs privés, séances de fitness et salles de musculation.</p>
-          </div>
 
-          {/* Auto */}
-          <div className="card card-hover" onClick={() => handleCategoryClick('auto')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(59, 130, 246, 0.12)', color: 'rgb(37, 99, 235)' }}>
-              <Car size={28} />
+            {/* Auto */}
+            <div className="card card-hover" onClick={() => handleCategoryClick('auto')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(59, 130, 246, 0.12)', color: 'rgb(37, 99, 235)' }}>
+                <Car size={28} />
+              </div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Services Auto</h3>
+              <p style={{ fontSize: '0.85rem' }}>Lavage écologique, vidange et mécaniciens agréés.</p>
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Services Auto</h3>
-            <p style={{ fontSize: '0.85rem' }}>Lavage écologique, vidange et mécaniciens agréés.</p>
-          </div>
 
-          {/* Artisan */}
-          <div className="card card-hover" onClick={() => handleCategoryClick('artisan')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(245, 158, 11, 0.12)', color: 'rgb(217, 119, 6)' }}>
-              <Wrench size={28} />
+            {/* Artisan */}
+            <div className="card card-hover" onClick={() => handleCategoryClick('artisan')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(245, 158, 11, 0.12)', color: 'rgb(217, 119, 6)' }}>
+                <Wrench size={28} />
+              </div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Artisans & Maison</h3>
+              <p style={{ fontSize: '0.85rem' }}>Plombiers, électriciens et ménage à domicile.</p>
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Artisans & Maison</h3>
-            <p style={{ fontSize: '0.85rem' }}>Plombiers, électriciens et ménage à domicile.</p>
-          </div>
 
-          {/* Loisirs */}
-          <div className="card card-hover" onClick={() => handleCategoryClick('loisir')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(244, 63, 94, 0.12)', color: 'rgb(225, 29, 72)' }}>
-              <Camera size={28} />
+            {/* Loisirs */}
+            <div className="card card-hover" onClick={() => handleCategoryClick('loisir')} style={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+              <div className="category-icon-wrapper" style={{ backgroundColor: 'rgba(244, 63, 94, 0.12)', color: 'rgb(225, 29, 72)' }}>
+                <Camera size={28} />
+              </div>
+              <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Loisirs & Photos</h3>
+              <p style={{ fontSize: '0.85rem' }}>Photographes professionnels, studios et événements.</p>
             </div>
-            <h3 style={{ fontSize: '1.2rem', marginBottom: '8px' }}>Loisirs & Photos</h3>
-            <p style={{ fontSize: '0.85rem' }}>Photographes professionnels, studios et événements.</p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Trust Badges */}
-      <section className="glass" style={{ borderRadius: 'var(--radius-lg)', padding: '40px 24px', marginBottom: '80px', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '30px' }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '300px', textAlign: 'left' }}>
-          <Clock size={36} style={{ color: 'var(--primary)', flexShrink: 0 }} />
-          <div>
-            <h4 style={{ fontSize: '1.05rem', fontWeight: 700 }}>Dispo 24h/7</h4>
-            <p style={{ fontSize: '0.85rem' }}>Réservez à tout moment, depuis votre ordinateur ou votre mobile.</p>
+        {/* Trust Badges */}
+        <section className="glass" style={{ borderRadius: 'var(--radius-lg)', padding: '40px 24px', marginBottom: '80px', display: 'flex', justifyContent: 'space-around', flexWrap: 'wrap', gap: '30px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '300px', textAlign: 'left' }}>
+            <Clock size={36} style={{ color: 'var(--primary)', flexShrink: 0 }} />
+            <div>
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 700 }}>Dispo 24h/7</h4>
+              <p style={{ fontSize: '0.85rem' }}>Réservez à tout moment, depuis votre ordinateur ou votre mobile.</p>
+            </div>
           </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '300px', textAlign: 'left' }}>
-          <Award size={36} style={{ color: 'var(--primary)', flexShrink: 0 }} />
-          <div>
-            <h4 style={{ fontSize: '1.05rem', fontWeight: 700 }}>Professionnels vérifiés</h4>
-            <p style={{ fontSize: '0.85rem' }}>Tous les prestataires sont agréés et notés par de vrais clients.</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '300px', textAlign: 'left' }}>
+            <Award size={36} style={{ color: 'var(--primary)', flexShrink: 0 }} />
+            <div>
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 700 }}>Professionnels vérifiés</h4>
+              <p style={{ fontSize: '0.85rem' }}>Tous les prestataires sont agréés et notés par de vrais clients.</p>
+            </div>
           </div>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '300px', textAlign: 'left' }}>
-          <Shield size={36} style={{ color: 'var(--primary)', flexShrink: 0 }} />
-          <div>
-            <h4 style={{ fontSize: '1.05rem', fontWeight: 700 }}>Réservation sécurisée</h4>
-            <p style={{ fontSize: '0.85rem' }}>Annulation sans frais et notifications de rappels SMS / Email.</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '300px', textAlign: 'left' }}>
+            <Shield size={36} style={{ color: 'var(--primary)', flexShrink: 0 }} />
+            <div>
+              <h4 style={{ fontSize: '1.05rem', fontWeight: 700 }}>Réservation sécurisée</h4>
+              <p style={{ fontSize: '0.85rem' }}>Annulation sans frais et notifications de rappels SMS / Email.</p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Featured Services */}
-      <section style={{ marginBottom: '40px' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
-          <h2 style={{ fontSize: '2rem', fontWeight: 800 }}>Prestations populaires</h2>
-          <Link to="/search" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontWeight: 600, fontSize: '0.95rem' }}>
-            Voir tout
-            <ArrowRight size={16} />
-          </Link>
-        </div>
+        {/* Featured Services */}
+        <section style={{ marginBottom: '40px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '32px' }}>
+            <h2 style={{ fontSize: '2rem', fontWeight: 800 }}>Prestations populaires</h2>
+            <Link to="/search" style={{ display: 'flex', alignItems: 'center', gap: '6px', color: 'var(--primary)', fontWeight: 600, fontSize: '0.95rem' }}>
+              Voir tout
+              <ArrowRight size={16} />
+            </Link>
+          </div>
 
-        {loading ? (
-          <div style={{ textAlign: 'center', padding: '40px' }}>
-            <div style={{ display: 'inline-block', width: '40px', height: '40px', border: '4px solid var(--border)', borderTopColor: 'var(--primary)', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
-            <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-            <p style={{ marginTop: '16px' }}>Chargement des prestations...</p>
-          </div>
-        ) : (
-          <div className="grid-4">
-            {services.map((service) => (
-              <ServiceCard key={service._id || service.id} service={service} />
-            ))}
-          </div>
-        )}
-      </section>
+          {loading ? (
+            <div style={{ textAlign: 'center', padding: '40px' }}>
+              <div style={{ display: 'inline-block', width: '40px', height: '40px', border: '4px solid var(--border)', borderTopColor: 'var(--primary)', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
+              <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+              <p style={{ marginTop: '16px' }}>Chargement des prestations...</p>
+            </div>
+          ) : (
+            <div className="grid-4">
+              {services.map((service) => (
+                <ServiceCard key={service._id || service.id} service={service} />
+              ))}
+            </div>
+          )}
+        </section>
+      </div>
     </div>
   );
 };

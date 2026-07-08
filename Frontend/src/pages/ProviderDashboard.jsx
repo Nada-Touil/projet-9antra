@@ -186,7 +186,7 @@ const ProviderDashboard = () => {
   const pendingBookingsCount = bookings.filter(b => b.statut === 'en_attente').length;
 
   return (
-    <div className="animate-fade-in" style={{ textAlign: 'left' }}>
+    <div className="container animate-fade-in" style={{ textAlign: 'left' }}>
       
       {/* Validation Banner if provider not validated */}
       {!user.isValidatedPrestataire && user.statutPrestataire !== 'valide' && (

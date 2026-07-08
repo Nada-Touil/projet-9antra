@@ -114,7 +114,7 @@ const AdminDashboard = () => {
   const clients = usersList.filter(u => u.role === 'client');
 
   return (
-    <div className="animate-fade-in" style={{ textAlign: 'left' }}>
+    <div className="container animate-fade-in" style={{ textAlign: 'left' }}>
       <div style={{ marginBottom: '32px' }}>
         <h1 style={{ fontSize: '2.25rem', marginBottom: '8px' }}>Panneau d'Administration Wakti</h1>
         <p>Gérez les prestataires, surveillez les statistiques globales et validez les nouvelles inscriptions.</p>

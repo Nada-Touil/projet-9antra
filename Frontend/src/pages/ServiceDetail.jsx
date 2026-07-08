@@ -304,7 +304,7 @@ const ServiceDetail = () => {
   const timeSlots = ['09:00', '10:00', '11:00', '14:00', '15:00', '16:00', '17:00'];
 
   return (
-    <div className="animate-fade-in" style={{ textAlign: 'left' }}>
+    <div className="container animate-fade-in" style={{ textAlign: 'left' }}>
       {/* Breadcrumb */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: '24px' }}>
         <Link to="/">Accueil</Link>

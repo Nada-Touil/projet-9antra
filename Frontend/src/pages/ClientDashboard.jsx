@@ -208,7 +208,7 @@ const ClientDashboard = () => {
   if (!user) return null;
 
   return (
-    <div className="animate-fade-in" style={{ textAlign: 'left' }}>
+    <div className="container animate-fade-in" style={{ textAlign: 'left' }}>
       <div style={{ marginBottom: '32px' }}>
         <h1 style={{ fontSize: '2.25rem', marginBottom: '8px' }}>Mon Espace Client</h1>
         <p>Gérez vos réservations, exprimez votre avis, et discutez avec notre assistant intelligent.</p>

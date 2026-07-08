@@ -164,7 +164,7 @@ const Search = () => {
   ];
 
   return (
-    <div className="animate-fade-in">
+    <div className="container animate-fade-in">
       <div style={{ marginBottom: '32px', textAlign: 'left' }}>
         <h1 style={{ fontSize: '2.25rem', marginBottom: '8px' }}>Explorer nos services</h1>
         <p>Découvrez les prestataires disponibles et planifiez votre rendez-vous en ligne sur Wakti.</p>
