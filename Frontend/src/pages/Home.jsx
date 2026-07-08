@@ -123,21 +123,18 @@ const Home = () => {
         overflow: 'hidden'
       }}>
         <div style={{ maxWidth: '800px', zIndex: 2, position: 'relative' }}>
-          <div style={{
-            display: 'inline-block',
-            padding: '24px 40px',
-            borderRadius: '24px',
-            backgroundColor: 'rgba(0, 0, 0, 0.55)',
-            backdropFilter: 'blur(8px)',
-            border: '1px solid rgba(255, 255, 255, 0.12)',
+          <h1 style={{
+            color: '#ffffff',
+            WebkitTextFillColor: '#ffffff',
+            fontSize: '3.25rem',
+            fontWeight: 800,
             marginBottom: '40px',
-            textAlign: 'center'
+            lineHeight: '1.25',
+            textShadow: '0 4px 20px rgba(0, 0, 0, 0.75)'
           }}>
-            <h1 className="hero-title" style={{ color: 'white', fontSize: '3rem', fontWeight: 800, margin: 0, lineHeight: '1.2', textShadow: '0 2px 10px rgba(0,0,0,0.3)' }}>
-              Gagnez du temps.<br />
-              Planifiez vos réservations avec <span style={{ color: '#a78bfa', background: 'linear-gradient(135deg, #a78bfa, #c084fc)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Wakti</span>.
-            </h1>
-          </div>
+            Gagnez du temps.<br />
+            Planifiez vos réservations avec <span style={{ color: '#c084fc', WebkitTextFillColor: '#c084fc' }}>Wakti</span>.
+          </h1>
 
           {/* Search Bar Form */}
           <form onSubmit={handleSearchSubmit} className="search-wrapper glass" style={{ width: '100%', margin: '0 auto', background: 'rgba(255, 255, 255, 0.95)', border: '1px solid rgba(255, 255, 255, 0.2)', boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)' }}>
