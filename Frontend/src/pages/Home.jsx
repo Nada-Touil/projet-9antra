@@ -102,7 +102,7 @@ const Home = () => {
     <div className="animate-fade-in">
       {/* Hero Section */}
       <section className="hero-section-full" style={{
-        backgroundImage: `linear-gradient(rgba(15, 12, 30, 0.75), rgba(15, 12, 30, 0.75)), url(${heroImg})`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.45)), url(${heroImg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         width: '100vw',
