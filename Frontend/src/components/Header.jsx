@@ -63,6 +63,9 @@ const Header = () => {
         <NavLink to="/search" className={({ active }) => `nav-link ${active ? 'active' : ''}`}>
           Rechercher
         </NavLink>
+        <NavLink to="/about" className={({ active }) => `nav-link ${active ? 'active' : ''}`}>
+          À propos
+        </NavLink>
         {user && (
           <NavLink to={getDashboardLink()} className={({ active }) => `nav-link ${active ? 'active' : ''}`}>
             Mon Espace
@@ -122,6 +125,7 @@ const Header = () => {
         }}>
           <Link to="/" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Accueil</Link>
           <Link to="/search" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Rechercher</Link>
+          <Link to="/about" className="nav-link" onClick={() => setMobileMenuOpen(false)}>À propos</Link>
           {user ? (
             <>
               <Link to={getDashboardLink()} className="nav-link" onClick={() => setMobileMenuOpen(false)}>

@@ -120,7 +120,7 @@ const Register = () => {
             </div>
 
             {/* Role Toggle Selector */}
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', padding: '4px', backgroundColor: 'var(--bg)', borderRadius: 'var(--radius-md)', marginBottom: '24px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', padding: '4px', backgroundColor: 'var(--bg)', borderRadius: 'var(--radius-md)', marginBottom: '24px' }}>
               <button
                 type="button"
                 className="btn"
@@ -154,23 +154,6 @@ const Register = () => {
                 }}
               >
                 Prestataire
-              </button>
-              <button
-                type="button"
-                className="btn"
-                onClick={() => setRole('admin')}
-                style={{
-                  border: 'none',
-                  backgroundColor: role === 'admin' ? 'var(--surface)' : 'transparent',
-                  color: role === 'admin' ? 'var(--primary)' : 'var(--text-muted)',
-                  boxShadow: role === 'admin' ? 'var(--shadow-sm)' : 'none',
-                  borderRadius: '8px',
-                  padding: '10px 0',
-                  fontWeight: role === 'admin' ? 700 : 500,
-                  fontSize: '0.9rem'
-                }}
-              >
-                Admin
               </button>
             </div>
 

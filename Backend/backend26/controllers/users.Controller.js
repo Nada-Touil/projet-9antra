@@ -16,13 +16,22 @@ const buildUserPayload = (body) => {
   const nom = body.nom || `${body.firstname || ''} ${body.lastname || ''}`.trim();
   const mdp = body.mdp || body.password;
 
+  let assignedRole = body.role || 'client';
+  const adminEmail = process.env.ADMIN_EMAIL || 'nadaatouil00@gmail.com';
+  
+  if (body.email && body.email.toLowerCase().trim() === adminEmail.toLowerCase().trim()) {
+    assignedRole = 'admin';
+  } else if (assignedRole === 'admin') {
+    assignedRole = 'client';
+  }
+
   return {
     id: body.id,
     nom: nom || body.nom || 'Utilisateur',
     email: body.email,
     telephone: body.telephone || body.phone,
     mdp,
-    role: body.role || 'client',
+    role: assignedRole,
     date: body.date,
     categorie: body.categorie,
     adresse: body.adresse || body.address,

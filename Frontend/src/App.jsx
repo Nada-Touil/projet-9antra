@@ -13,6 +13,7 @@ import Register from './pages/Register';
 import ClientDashboard from './pages/ClientDashboard';
 import ProviderDashboard from './pages/ProviderDashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import About from './pages/About';
 
 import './App.css';
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/service/:id" element={<ServiceDetail />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/about" element={<About />} />
             <Route path="/client-dashboard" element={<ClientDashboard />} />
             <Route path="/provider-dashboard" element={<ProviderDashboard />} />
             <Route path="/admin-dashboard" element={<AdminDashboard />} />

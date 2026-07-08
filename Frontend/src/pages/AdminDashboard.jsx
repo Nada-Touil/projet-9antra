@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { Users, Calendar, Award, MessageSquare, ShieldCheck, UserX, CheckCircle } from 'lucide-react';
 
 const AdminDashboard = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [stats, setStats] = useState({
     users: 0,
     reservations: 0,
@@ -55,8 +57,12 @@ const AdminDashboard = () => {
   };
 
   useEffect(() => {
-    fetchAdminData();
-  }, []);
+    if (!user || user.email !== 'nadaatouil00@gmail.com') {
+      navigate('/');
+    } else {
+      fetchAdminData();
+    }
+  }, [user, navigate]);
 
   const handleValidatePrestataire = async (providerId) => {
     setActionSuccess('');
