@@ -106,11 +106,11 @@ const Home = () => {
           {/* Left Column */}
           <div className="hero-left">
             <h1 className="hero-title">
-              Ne perdez plus de temps.<br />
-              Réservez avec <span style={{ color: 'var(--primary)', background: 'linear-gradient(135deg, var(--primary), var(--secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Wakti</span>.
+              Gagnez du temps.<br />
+              Planifiez vos réservations avec <span style={{ color: 'var(--primary)', background: 'linear-gradient(135deg, var(--primary), var(--secondary))', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Wakti</span>.
             </h1>
             <p className="hero-subtitle">
-              Wakti ("Mon Temps") est la plateforme Tunisienne premium pour planifier vos rendez-vous instantanément : réserver une table de restaurant spécifique, une chambre avec vue ou vos médecins.
+              Wakti est la première plateforme tunisienne intelligente dédiée à l’optimisation de votre temps. Planifiez instantanément toutes vos réservations en quelques clics : réservez une table précise dans vos restaurants favoris, choisissez votre chambre d’hôtel selon la vue ou prenez rendez-vous chez vos médecins sans aucune attente. Dites adieu aux appels interminables et optimisez votre quotidien.
             </p>
 
             {/* Search Bar Form */}

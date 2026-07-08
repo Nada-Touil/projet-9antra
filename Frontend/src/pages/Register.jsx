@@ -112,8 +112,8 @@ const Register = () => {
           <>
             <div style={{ textAlign: 'center', marginBottom: '28px' }}>
               <div className="logo-container" style={{ justifyContent: 'center', marginBottom: '16px' }}>
-                <div className="logo-icon">9</div>
-                <span>9antra</span>
+                <div className="logo-icon">W</div>
+                <span>Wakti</span>
               </div>
               <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Créer un compte</h2>
               <p style={{ fontSize: '0.9rem', marginTop: '6px' }}>Rejoignez notre réseau de réservation en Tunisie</p>

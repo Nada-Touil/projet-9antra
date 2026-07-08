@@ -47,8 +47,8 @@ const Login = () => {
       <div className="card animate-fade-in" style={{ width: '100%', maxWidth: '440px', padding: '36px', boxShadow: 'var(--shadow-lg)' }}>
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div className="logo-container" style={{ justifyContent: 'center', marginBottom: '16px' }}>
-            <div className="logo-icon">9</div>
-            <span>9antra</span>
+            <div className="logo-icon">W</div>
+            <span>Wakti</span>
           </div>
           <h2 style={{ fontSize: '1.75rem', fontWeight: 800 }}>Ravis de vous revoir</h2>
           <p style={{ fontSize: '0.9rem', marginTop: '6px' }}>Connectez-vous pour gérer vos réservations</p>
