@@ -88,6 +88,14 @@ const Search = () => {
       prix: 150,
       categorie: 'loisir',
       prestataire: { nom: 'Studio Elyes Photo', adresse: 'Rue de Sousse, Menzah 5, Tunis', note: 4.7 }
+    },
+    {
+      _id: 'mock-9',
+      nom: 'Chambre Double Vue Mer',
+      description: 'Séjour d’une nuit avec petit-déjeuner inclus dans une chambre luxueuse avec vue panoramique sur la mer Méditerranée.',
+      prix: 180,
+      categorie: 'hotel',
+      prestataire: { nom: 'Hôtel El Mouradi Palm Marina', adresse: 'Zone Touristique Port El Kantaoui, Sousse', note: 4.8 }
     }
   ];
 
@@ -134,12 +142,13 @@ const Search = () => {
       result = result.filter(s => s.categorie?.toLowerCase() === selectedCategory.toLowerCase());
     }
 
-    // Filter by keyword (service name, description, or provider name)
+    // Filter by keyword (service name, description, category, or provider name)
     if (searchTerm) {
       const keyword = searchTerm.toLowerCase();
       result = result.filter(
         s => s.nom?.toLowerCase().includes(keyword) || 
              s.description?.toLowerCase().includes(keyword) ||
+             s.categorie?.toLowerCase().includes(keyword) ||
              s.prestataire?.nom?.toLowerCase().includes(keyword)
       );
     }

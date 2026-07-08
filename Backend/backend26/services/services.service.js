@@ -6,19 +6,19 @@ module.exports.createService = async (data) => {
 };
 
 module.exports.getAllServices = async () => {
-  return await Service.find();
+  return await Service.find().populate('prestataire');
 };
 
 module.exports.getAvailableServices = async () => {
-  return await Service.find({ disponible: true });
+  return await Service.find({ disponible: true }).populate('prestataire');
 };
 
 module.exports.getServiceById = async (id) => {
-  return await Service.findById(id);
+  return await Service.findById(id).populate('prestataire');
 };
 
 module.exports.updateService = async (id, updateData) => {
-  return await Service.findByIdAndUpdate(id, updateData, { new: true, runValidators: true });
+  return await Service.findByIdAndUpdate(id, updateData, { new: true, runValidators: true }).populate('prestataire');
 };
 
 module.exports.deleteService = async (id) => {
