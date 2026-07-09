@@ -50,8 +50,8 @@ const Login = () => {
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div className="logo-container" style={{ justifyContent: 'center', marginBottom: '16px', gap: '8px' }}>
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-              <path d="M12 21C16 16.5 19 13 19 9C19 5.13401 15.866 2 12 2C8.13401 2 5 5.13401 5 9C5 13 8 16.5 12 21Z" stroke="url(#logo-grad-login)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M9 9L11 11L15 7" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M4 8V6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V8C18.5 8 18.5 10 20 10V14C18.5 14 18.5 16 20 16V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V16C5.5 16 5.5 14 4 14V10C5.5 10 5.5 8 4 8Z" stroke="url(#logo-grad-login)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M12 8V16" stroke="url(#logo-grad-login)" strokeWidth="2" strokeDasharray="3 3" strokeLinecap="round" />
               <defs>
                 <linearGradient id="logo-grad-login" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
                   <stop offset="0%" stopColor="#7c3aed" />
