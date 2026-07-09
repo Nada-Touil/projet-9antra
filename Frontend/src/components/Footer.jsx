@@ -7,13 +7,10 @@ const Footer = () => {
       <div className="footer-content">
         <div className="logo-container" style={{ justifyContent: 'center', marginBottom: '8px', gap: '8px' }}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-            <rect x="3" y="5" width="18" height="15" rx="3" stroke="url(#logo-grad-footer)" strokeWidth="2.2" />
-            <path d="M8 2V5M16 2V5" stroke="url(#logo-grad-footer)" strokeWidth="2.2" strokeLinecap="round" />
-            <path d="M3 9H21" stroke="url(#logo-grad-footer)" strokeWidth="2.2" />
-            <circle cx="12" cy="14.5" r="3.2" stroke="#7c3aed" strokeWidth="1.5" />
-            <path d="M12 12.5V14.5L13.5 15.5" stroke="#7c3aed" strokeWidth="1.5" strokeLinecap="round" />
+            <circle cx="12" cy="12" r="10" stroke="url(#logo-grad-footer)" strokeWidth="2.5" />
+            <path d="M8 12L11 15L16 9" stroke="#7c3aed" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
             <defs>
-              <linearGradient id="logo-grad-footer" x1="3" y1="2" x2="21" y2="20" gradientUnits="userSpaceOnUse">
+              <linearGradient id="logo-grad-footer" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#7c3aed" />
                 <stop offset="100%" stopColor="#4f46e5" />
               </linearGradient>
