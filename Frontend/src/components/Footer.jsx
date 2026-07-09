@@ -7,13 +7,9 @@ const Footer = () => {
       <div className="footer-content">
         <div className="logo-container" style={{ justifyContent: 'center', marginBottom: '8px', gap: '8px' }}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-            <rect x="3" y="3" width="7" height="7" rx="2" fill="url(#logo-grad-footer)" fillOpacity="0.15" stroke="url(#logo-grad-footer)" strokeWidth="2.2" />
-            <rect x="14" y="3" width="7" height="7" rx="2" fill="url(#logo-grad-footer)" fillOpacity="0.15" stroke="url(#logo-grad-footer)" strokeWidth="2.2" />
-            <rect x="3" y="14" width="7" height="7" rx="2" fill="url(#logo-grad-footer)" fillOpacity="0.15" stroke="url(#logo-grad-footer)" strokeWidth="2.2" />
-            <rect x="14" y="14" width="7" height="7" rx="2" fill="url(#logo-grad-footer)" stroke="url(#logo-grad-footer)" strokeWidth="2.2" />
-            <path d="M16 17.2L17.5 18.7L20 15.5" stroke="#ffffff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M3 9L7 17L10.5 12L14 17L21 8" stroke="url(#logo-grad-footer)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
             <defs>
-              <linearGradient id="logo-grad-footer" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+              <linearGradient id="logo-grad-footer" x1="3" y1="8" x2="21" y2="17" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#7c3aed" />
                 <stop offset="100%" stopColor="#4f46e5" />
               </linearGradient>
