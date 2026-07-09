@@ -22,9 +22,22 @@ const Header = () => {
 
   return (
     <header className="header glass">
-      <div className="logo-container" onClick={() => navigate('/')}>
-        <div className="logo-icon">W</div>
-        <span>Wakti</span>
+      <div className="logo-container" onClick={() => navigate('/')} style={{ display: 'flex', alignItems: 'center', gap: '8px', cursor: 'pointer' }}>
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+          <circle cx="16" cy="16" r="14" stroke="url(#logo-grad-header)" strokeWidth="2.5" />
+          <path d="M11 11L14 16L11 21M21 11L18 16L21 21" stroke="url(#logo-grad-header)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="16" cy="16" r="2" fill="#7c3aed" />
+          <path d="M16 16V10M16 16L19 19" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" />
+          <defs>
+            <linearGradient id="logo-grad-header" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stopColor="#7c3aed" />
+              <stop offset="100%" stopColor="#4f46e5" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <span style={{ fontSize: '1.5rem', fontWeight: 800, fontFamily: 'var(--font-heading)', background: 'linear-gradient(135deg, #7c3aed, #4f46e5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.5px' }}>
+          Wakti
+        </span>
       </div>
 
       {/* Desktop Navigation */}
