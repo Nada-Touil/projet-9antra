@@ -113,11 +113,10 @@ const Register = () => {
             <div style={{ textAlign: 'center', marginBottom: '28px' }}>
               <div className="logo-container" style={{ justifyContent: 'center', marginBottom: '16px', gap: '8px' }}>
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-                  <circle cx="8" cy="12" r="5.5" stroke="url(#logo-grad-reg)" strokeWidth="2.2" />
-                  <circle cx="16" cy="12" r="5.5" stroke="url(#logo-grad-reg)" strokeWidth="2.2" />
-                  <path d="M10.5 12L12 13.5L14.5 10.5" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M4 11L7.5 15L11.5 8" stroke="url(#logo-grad-reg)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M11.5 11L15 15L20 7" stroke="url(#logo-grad-reg)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
                   <defs>
-                    <linearGradient id="logo-grad-reg" x1="3" y1="6" x2="21" y2="18" gradientUnits="userSpaceOnUse">
+                    <linearGradient id="logo-grad-reg" x1="4" y1="7" x2="20" y2="15" gradientUnits="userSpaceOnUse">
                       <stop offset="0%" stopColor="#7c3aed" />
                       <stop offset="100%" stopColor="#4f46e5" />
                     </linearGradient>
