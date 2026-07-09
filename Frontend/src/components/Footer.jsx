@@ -6,13 +6,14 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <div className="logo-container" style={{ justifyContent: 'center', marginBottom: '8px', gap: '8px' }}>
-          <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-            <circle cx="16" cy="16" r="14" stroke="url(#logo-grad-footer)" strokeWidth="2.5" />
-            <path d="M11 11L14 16L11 21M21 11L18 16L21 21" stroke="url(#logo-grad-footer)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            <circle cx="16" cy="16" r="2" fill="#7c3aed" />
-            <path d="M16 16V10M16 16L19 19" stroke="#7c3aed" strokeWidth="2" strokeLinecap="round" />
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
+            <rect x="3" y="5" width="18" height="15" rx="3" stroke="url(#logo-grad-footer)" strokeWidth="2.2" />
+            <path d="M8 2V5M16 2V5" stroke="url(#logo-grad-footer)" strokeWidth="2.2" strokeLinecap="round" />
+            <path d="M3 9H21" stroke="url(#logo-grad-footer)" strokeWidth="2.2" />
+            <circle cx="12" cy="14.5" r="3.2" stroke="#7c3aed" strokeWidth="1.5" />
+            <path d="M12 12.5V14.5L13.5 15.5" stroke="#7c3aed" strokeWidth="1.5" strokeLinecap="round" />
             <defs>
-              <linearGradient id="logo-grad-footer" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+              <linearGradient id="logo-grad-footer" x1="3" y1="2" x2="21" y2="20" gradientUnits="userSpaceOnUse">
                 <stop offset="0%" stopColor="#7c3aed" />
                 <stop offset="100%" stopColor="#4f46e5" />
               </linearGradient>
