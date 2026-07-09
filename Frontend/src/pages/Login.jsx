@@ -50,10 +50,15 @@ const Login = () => {
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div className="logo-container" style={{ justifyContent: 'center', marginBottom: '16px', gap: '8px' }}>
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-              <circle cx="8" cy="9" r="5.5" fill="#4f46e5" fillOpacity="0.65" />
-              <circle cx="16" cy="9" r="5.5" fill="#7c3aed" fillOpacity="0.65" />
-              <circle cx="12" cy="15" r="5.5" fill="#db2777" fillOpacity="0.65" />
-              <path d="M8 12L11 15L16 9" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <circle cx="8" cy="12" r="5.5" stroke="url(#logo-grad-login)" strokeWidth="2.2" />
+              <circle cx="16" cy="12" r="5.5" stroke="url(#logo-grad-login)" strokeWidth="2.2" />
+              <path d="M10.5 12L12 13.5L14.5 10.5" stroke="#7c3aed" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              <defs>
+                <linearGradient id="logo-grad-login" x1="3" y1="6" x2="21" y2="18" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#7c3aed" />
+                  <stop offset="100%" stopColor="#4f46e5" />
+                </linearGradient>
+              </defs>
             </svg>
             <span style={{ fontSize: '1.5rem', fontWeight: 800, fontFamily: 'var(--font-heading)', background: 'linear-gradient(135deg, #7c3aed, #4f46e5)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', letterSpacing: '-0.5px' }}>
               Wakti
