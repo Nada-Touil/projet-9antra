@@ -50,10 +50,13 @@ const Login = () => {
         <div style={{ textAlign: 'center', marginBottom: '28px' }}>
           <div className="logo-container" style={{ justifyContent: 'center', marginBottom: '16px', gap: '8px' }}>
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ flexShrink: 0 }}>
-              <path d="M4 8V6C4 4.89543 4.89543 4 6 4H18C19.1046 4 20 4.89543 20 6V8C18.5 8 18.5 10 20 10V14C18.5 14 18.5 16 20 16V18C20 19.1046 19.1046 20 18 20H6C4.89543 20 4 19.1046 4 18V16C5.5 16 5.5 14 4 14V10C5.5 10 5.5 8 4 8Z" stroke="url(#logo-grad-login)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M12 8V16" stroke="url(#logo-grad-login)" strokeWidth="2" strokeDasharray="3 3" strokeLinecap="round" />
+              <path d="M5 15C5 10.5 8.5 7 12 7C15.5 7 19 10.5 19 15" stroke="url(#logo-grad-login)" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M12 3V7" stroke="url(#logo-grad-login)" strokeWidth="2.5" strokeLinecap="round" />
+              <path d="M10 3H14" stroke="url(#logo-grad-login)" strokeWidth="2" strokeLinecap="round" />
+              <path d="M2 18H22" stroke="url(#logo-grad-login)" strokeWidth="2.5" strokeLinecap="round" />
+              <rect x="5" y="15" width="14" height="3" rx="1.5" fill="url(#logo-grad-login)" />
               <defs>
-                <linearGradient id="logo-grad-login" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
+                <linearGradient id="logo-grad-login" x1="2" y1="3" x2="22" y2="18" gradientUnits="userSpaceOnUse">
                   <stop offset="0%" stopColor="#7c3aed" />
                   <stop offset="100%" stopColor="#4f46e5" />
                 </linearGradient>
