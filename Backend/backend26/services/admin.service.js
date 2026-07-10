@@ -47,5 +47,35 @@ module.exports.genererRapport = async () => {
 module.exports.dashboardStats = async () => {
   const stats = await module.exports.voirStats();
   const pendingPrestataires = await User.countDocuments({ role: 'prestataire', statutPrestataire: 'en_attente' });
-  return { ...stats, pendingPrestataires };
+  
+  let reservationsParCategorie = {
+    sante: 0,
+    beaute: 0,
+    restaurant: 0,
+    hotel: 0,
+    autre: 0
+  };
+  
+  try {
+    const reservations = await Reservation.find().populate('prestataire');
+    reservations.forEach(r => {
+      if (r.prestataire && r.prestataire.categorie) {
+        let cat = r.prestataire.categorie.toLowerCase();
+        if (cat === 'medecin' || cat === 'sante') cat = 'sante';
+        else if (cat === 'beauty' || cat === 'beaute') cat = 'beaute';
+        
+        if (reservationsParCategorie[cat] !== undefined) {
+          reservationsParCategorie[cat]++;
+        } else {
+          reservationsParCategorie['autre']++;
+        }
+      } else {
+        reservationsParCategorie['autre']++;
+      }
+    });
+  } catch (err) {
+    console.error('Error calculating reservation stats by category:', err);
+  }
+
+  return { ...stats, pendingPrestataires, reservationsParCategorie };
 };
